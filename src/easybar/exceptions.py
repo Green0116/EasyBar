@@ -2,6 +2,10 @@ class EasyBarException(Exception):
     """Base exception for EasyBar."""
 
 
+class EasyBarKeyboardInterrupt(KeyboardInterrupt, EasyBarException):
+    """Exception raised when the user interrupts the program."""
+
+
 class EasyBarTypeError(EasyBarException):
     """Exception raised when an object is not of the expected type."""
 

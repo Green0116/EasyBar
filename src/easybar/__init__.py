@@ -6,7 +6,7 @@
 #     |_|     |________| /_/       \_\ |_| \_/ |_|      |________| |_________|
 #
 from .exceptions import (
-    EasyBarException,
+    EasyBarException, EasyBarKeyboardInterrupt,
     EasyBarTypeError, EasyBarValueError, EasyBarKeyError,
 )
 from .api import (
@@ -22,6 +22,7 @@ __all__ = [
     'EasyBar',
     '...',
     'EasyBarException',
+    'EasyBarKeyboardInterrupt',
     'EasyBarTypeError',
     'EasyBarValueError',
     'EasyBarKeyError',
