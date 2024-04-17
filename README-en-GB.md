@@ -67,3 +67,11 @@
  You should now be updated with all remote changes (by others) as well as your own commits.
  
  - send a pull request on GitHub
+
+# Departmental Linux Server
+
+ - Establish connection to server
+
+ ```shell
+ ssh username@lxfarm06.csc.liv.ac.uk
+ ```
