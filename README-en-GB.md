@@ -67,3 +67,16 @@
  You should now be updated with all remote changes (by others) as well as your own commits.
  
  - send a pull request on GitHub
+
+# Departmental Linux Server
+
+ - Establish connection to server
+
+ ```shell
+ ssh username@lxfarm06.csc.liv.ac.uk
+ ```
+ Replace the username with your real university account username, you will then be prompted to enter your password. Your password will not be displayed on the screen while you type.
+ 
+ - You will then be prompted to choose the two-factor verification method.
+
+ - Once verified, you now have access to the department linux server. You should be directed to your $HOME directory by default (~/username).
