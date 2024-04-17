@@ -1,9 +1,7 @@
-from .exceptions import (
-    EasyBarKeyError, EasyBarTypeError, EasyBarValueError,
-)
+from multiprocessing import Lock
 
 
-class Wrapper:
+_lock = Lock()
 
-    def __init__(self, obj):
-        pass
+def get_flatform():
+    return '...'
