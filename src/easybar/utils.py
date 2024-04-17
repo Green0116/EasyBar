@@ -1,7 +1,4 @@
-from multiprocessing import Lock
+from multiprocessing import Lock as _lock
 
 
-_lock = Lock()
-
-def get_flatform():
-    return '...'
+PROGRESS_LOCK = _lock()
