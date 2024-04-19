@@ -6,29 +6,28 @@
 #     |_|     |________| /_/       \_\ |_| \_/ |_|      |________| |_________|
 #
 from .exceptions import (
-    EasyBarException, EasyBarKeyboardInterrupt,
+    EasyBarException, EasyBarFileNotFoundError, EasyBarDecodeError,
     EasyBarTypeError, EasyBarValueError, EasyBarKeyError,
+    EasyBarStopIteration, EasyBarNotImplementedError,
 )
 from .api import (
     EasyBar,
 )
-from .customisation import CustomisedBar
-from .asyncio import AsyncEasyBar
-from .nested import NestedEasyBar
 from .version import __version__
 
 
 __all__ = [
     'EasyBar',
-    '...',
     'EasyBarException',
-    'EasyBarKeyboardInterrupt',
+    'EasyBarFileNotFoundError',
+    'EasyBarDecodeError',
     'EasyBarTypeError',
     'EasyBarValueError',
     'EasyBarKeyError',
+    'EasyBarStopIteration',
+    'EasyBarNotImplementedError',
     '__author__',
     '__doc__',
-    '__main__',
     '__version__',
 ]
 
