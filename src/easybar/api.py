@@ -1,4 +1,4 @@
-from .utils import Bar, colour_txt, Numeric
+from .utils import Bar, Numeric
 from .exceptions import EasyBarException
 
 from typing import Optional, Callable
@@ -26,7 +26,7 @@ class EasyBar(Bar):
         else:
             progress_str = f'{(progress * 100):.2f}%'
 
-        prefix_len = len(self.prefix)
+        prefix_len = len(self._prefix)
         progress_len = len(progress_str)
         boundary_len = len(self._boundary)
         bar_len = self._window_size - prefix_len - \
@@ -41,8 +41,9 @@ class EasyBar(Bar):
 
         bar = '\r' + prefix + start + display + fill + \
             end + progress_str
+        coloured_bar = self.colour_txt(bar, self._colour, self._bg_colour)
 
-        print(colour_txt(bar), end='', flush=True)
+        print(coloured_bar, end='', flush=True)
 
     def inc(self, inc):
         self._inc = inc
@@ -91,3 +92,19 @@ def loop(func: Callable, times: Optional[int] = None,
                 raise EasyBarException(msg)
 
     return inner
+
+
+def main():
+    barA = EasyBar(100, colour='green')
+    barB = EasyBar(100, colour='red')
+
+    for _ in barA:
+        _time.sleep(0.01)
+
+    for i in barB:
+        with open('tmp.txt', 'at') as f:
+            f.write(str(i))
+
+
+if __name__ == '__main__':
+    main()

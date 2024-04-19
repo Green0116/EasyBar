@@ -87,6 +87,9 @@ class Bar:
 
     def __next__(self):
         if self._progress >= self._total:
+            self._is_complete = True
+            print()
+
             raise EasyBarStopIteration
 
         self.update()
