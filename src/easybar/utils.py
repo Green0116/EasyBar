@@ -104,25 +104,25 @@ class Bar:
     def get_window_size():
         return _shutil.get_terminal_size().columns
 
+    @staticmethod
+    def colour_txt(text: str, foreground: str = 'default',
+                   background: str = 'default') -> str:
+        foreground = foreground.lower()
+        background = background.lower()
 
-def colour_txt(text: str, foreground: str = 'default',
-               background: str = 'default') -> str:
-    foreground = foreground.lower()
-    background = background.lower()
+        if foreground not in COLOUR_SEQUENCE['foreground']:
+            msg = f'Invalid text colour: {foreground}'
 
-    if foreground not in COLOUR_SEQUENCE['foreground']:
-        msg = f'Invalid text colour: {foreground}'
+            raise EasyBarKeyError(msg)
 
-        raise EasyBarKeyError(msg)
+        if background not in COLOUR_SEQUENCE['background']:
+            msg = f'Invalid background colour: {background}'
 
-    if background not in COLOUR_SEQUENCE['background']:
-        msg = f'Invalid background colour: {background}'
+            raise EasyBarKeyError(msg)
 
-        raise EasyBarKeyError(msg)
+        txt_colour = COLOUR_SEQUENCE['foreground'][foreground]
+        bg_colour = COLOUR_SEQUENCE['background'][background]
+        reset = COLOUR_SEQUENCE['foreground']['reset']
+        coloured_text = txt_colour + bg_colour + text + reset
 
-    txt_colour = COLOUR_SEQUENCE['foreground'][foreground]
-    bg_colour = COLOUR_SEQUENCE['background'][background]
-    reset = COLOUR_SEQUENCE['foreground']['reset']
-    coloured_text = txt_colour + bg_colour + text + reset
-
-    return coloured_text
+        return coloured_text
