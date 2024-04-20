@@ -1,4 +1,4 @@
-from .utils import Bar, Numeric
+from .utils import Bar, Numeric, PROGRESS_LOCK as _lock
 from .exceptions import EasyBarException
 
 from typing import Optional, Callable
@@ -12,6 +12,7 @@ class EasyBar(Bar):
 
         # Progress to be updated
         self._inc = 1
+        self._lock = _lock
 
     def update(self):
         with self._lock:
@@ -21,9 +22,9 @@ class EasyBar(Bar):
     def print_bar(self):
         progress = self._progress / self._total
 
-        if self._mode == 'fraction':
+        if self._mode == 'fractional':
             progress_str = f'{self._progress} / {self._total}'
-        else:
+        elif self._mode == 'percentage':
             progress_str = f'{(progress * 100):.2f}%'
 
         prefix_len = len(self._prefix)

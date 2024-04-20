@@ -44,8 +44,8 @@ class Bar:
         self._total = total
 
         # Currently support percentage and fraction modes
-        if mode in ('default', 'fraction', 'f'):
-            self._mode = 'fraction'
+        if mode in ('default', 'fractional', 'f'):
+            self._mode = 'fractional'
         elif mode in ('percentage', 'p'):
             self._mode = 'percentage'
         else:
@@ -78,9 +78,7 @@ class Bar:
         self._bg_colour = bg_colour
 
         self._progress = 0
-        self._window_size = self.get_window_size()
         self._is_complete = False
-        self._lock = PROGRESS_LOCK
 
     def __iter__(self):
         return self
@@ -92,6 +90,7 @@ class Bar:
 
             raise EasyBarStopIteration
 
+        self._window_size = self.get_window_size()
         self.update()
 
         return self._progress
