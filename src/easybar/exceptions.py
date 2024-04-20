@@ -10,6 +10,10 @@ class EasyBarDecodeError(EasyBarException):
     """Exception raised when the configuration file cannot be decoded."""
 
 
+class EasyBarConfigurationError(EasyBarException):
+    """Exception raised when the configuration is invalid."""
+
+
 class EasyBarTypeError(EasyBarException):
     """Exception raised when an object is not of the expected type."""
 
@@ -28,3 +32,7 @@ class EasyBarStopIteration(StopIteration, EasyBarException):
 
 class EasyBarNotImplementedError(NotImplementedError, EasyBarException):
     """Exception raised when a method is not implemented."""
+
+
+class EasyBarIndexError(EasyBarException):
+    """Exception raised when an index is out of range."""
