@@ -1,7 +1,7 @@
 from .utils import Bar, Numeric, PROGRESS_LOCK as _lock
 from .exceptions import EasyBarException
 
-from typing import Optional, Callable
+from typing import Optional, Callable, List
 import time as _time
 
 
@@ -48,6 +48,13 @@ class EasyBar(Bar):
 
     def inc(self, inc):
         self._inc = inc
+
+
+class NestedBar(Bar):
+
+    def __init__(self, tasks: List[Callable], *args, **kwargs):
+        super().__init__(len(tasks), *args, **kwargs)
+        self._tasks = tasks
 
 
 def retry(func: Callable, max: Optional[int] = None,

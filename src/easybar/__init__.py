@@ -12,12 +12,14 @@ from .exceptions import (
 )
 from .api import (
     EasyBar,
+    NestedBar,
 )
 from .version import __version__
 
 
 __all__ = [
     'EasyBar',
+    'NestedBar',
     'EasyBarException',
     'EasyBarFileNotFoundError',
     'EasyBarDecodeError',
